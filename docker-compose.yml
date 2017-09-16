@@ -1,0 +1,31 @@
+version: "3"
+
+services:
+  db:
+    image: mariadb$MARIADBVER
+    volumes:
+      - ${DBDATA}:/var/lib/mysql
+    restart: always
+    env_file:
+      - db.env
+    container_name: ${DBCONTNAME}
+
+  wp:
+    depends_on:
+      - db
+    image: rjarow/alpine-php-wordpress
+    expose:
+      - 80
+    restart: always
+    volumes:
+      - ${WEBROOT}:/usr/html
+    environment:
+      WORDPRESS_DB_HOST: "${DBCONTNAME}:3306"
+    env_file:
+      - wp.env
+    container_name: ${WPCONTNAME}
+
+networks:
+  default:
+    external:
+      name: nginx-proxy
