@@ -13,7 +13,7 @@ services:
   wp:
     depends_on:
       - db
-    image: rjarow/alpine-php-wordpress
+    image: rjarow/danwp
     expose:
       - 80
     restart: always
