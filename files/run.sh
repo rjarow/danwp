@@ -12,6 +12,7 @@ if [ ! -f /usr/html/wp-config.php ]; then
   mkdir -p /usr/html
   chown -R nginx:nginx /usr/html
   su -c "wp core download --path=/usr/html" nginx
+  sleep 5
   su -c "wp config create --dbhost=$WORDPRESS_DB_HOST --dbname=$WORDPRESS_DB --dbuser=$WORDPRESS_DB_USER --dbpass=$WORDPRESS_DB_PASSWORD --path=/usr/html" nginx
   chown -R nginx:nginx /usr/html
 else
