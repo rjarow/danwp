@@ -22,7 +22,7 @@ COPY files/nginx.conf /etc/nginx/
 COPY files/php-fpm.conf /etc/php7/
 COPY files/run.sh /
 COPY files/wait-for-it.sh /usr/bin/
-RUN chmod +x /run.sh
+RUN chmod +x /run.sh && chmod +x /usr/bin/wait-for-it.sh
 
 ENV TERM="xterm"
 
