@@ -21,6 +21,7 @@ RUN sed -i 's/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/g' /etc/php7/php.ini && \
 COPY files/nginx.conf /etc/nginx/
 COPY files/php-fpm.conf /etc/php7/
 COPY files/run.sh /
+COPY files/wait-for-it.sh /usr/bin/
 RUN chmod +x /run.sh
 
 ENV TERM="xterm"

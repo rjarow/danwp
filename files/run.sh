@@ -12,7 +12,8 @@ if [ ! -f /usr/html/wp-config.php ]; then
   mkdir -p /usr/html
   cd /usr/html
   chown -R nginx:nginx /usr/html
-  su -c "wp core download --path=/usr/html && sleep 10 && wp config create --dbhost=$WORDPRESS_DB_HOST --dbname=$WORDPRESS_DB --dbuser=$WORDPRESS_DB_USER --dbpass=$WORDPRESS_DB_PASSWORD --path=/usr/html" nginx
+  wp core download --path=/usr/html
+  /usr/bin/wait-for-it.sh ${WORDPRESS_DB_HOST}:3306 --timeout=20 --strict -- wp config create --dbhost=$WORDPRESS_DB_HOST --dbname=$WORDPRESS_DB --dbuser=$WORDPRESS_DB_USER --dbpass=$WORDPRESS_DB_PASSWORD --path=/usr/html
 else
   chown -R nginx:nginx /usr/html
 fi
