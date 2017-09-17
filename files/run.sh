@@ -13,7 +13,7 @@ if [ ! -f /usr/html/wp-config.php ]; then
   cd /usr/html
   chown -R nginx:nginx /usr/html
   wp core download --path=/usr/html
-  /usr/bin/wait-for-it.sh ${WORDPRESS_DB_HOST}:3306 --timeout=20 --strict -- wp config create --dbhost=$WORDPRESS_DB_HOST --dbname=$WORDPRESS_DB --dbuser=$WORDPRESS_DB_USER --dbpass=$WORDPRESS_DB_PASSWORD --path=/usr/html
+  /usr/bin/wait-for-it.sh ${WORDPRESS_DB_HOST}:3306 --timeout=60 --strict -- wp config create --dbhost=$WORDPRESS_DB_HOST --dbname=$WORDPRESS_DB --dbuser=$WORDPRESS_DB_USER --dbpass=$WORDPRESS_DB_PASSWORD --path=/usr/html
 else
   chown -R nginx:nginx /usr/html
 fi
