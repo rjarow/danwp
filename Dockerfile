@@ -18,16 +18,10 @@ RUN sed -i 's/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/g' /etc/php7/php.ini && \
     sed -i "s/nginx:x:100:101:nginx:\/var\/lib\/nginx:\/sbin\/nologin/nginx:x:100:101:nginx:\/usr:\/bin\/bash/g" /etc/passwd- && \
     ln -s /sbin/php-fpm7 /sbin/php-fpm
 
-COPY files/nginx.conf /etc/nginx/
-COPY files/php-fpm.conf /etc/php7/
-COPY files/run.sh /
-COPY files/wait-for-it.sh /usr/bin/
-RUN chmod +x /run.sh && chmod +x /usr/bin/wait-for-it.sh
+COPY files/ /
 
 ENV TERM="xterm"
 
 EXPOSE 80
 
 VOLUME ["/usr"]
-
-CMD ["/run.sh"]
