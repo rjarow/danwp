@@ -7,5 +7,4 @@ mkdir -p /usr/logs/php-fpm
 mkdir -p /usr/logs/nginx
 mkdir -p /tmp/nginx
 chown nginx /tmp/nginx
-chmod +x /usr/bin/wp
 chmod +x /usr/bin/wait-for-it.sh

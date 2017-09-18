@@ -5,6 +5,8 @@ if [ ! -f /usr/html/wp-config.php ]; then
   mkdir -p /usr/html
   cd /usr/html
   wp core download --path=/usr/html
+  chown -R nginx:nginx /usr/html
 else
   echo "WP already installed."
+  chown -R nginx:nginx /usr/html
 fi
