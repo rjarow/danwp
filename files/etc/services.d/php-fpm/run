@@ -1,3 +1,2 @@
 #!/usr/bin/execlineb -P
-s6-setuidgid nginx
 php-fpm7
