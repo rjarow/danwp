@@ -1,8 +1,7 @@
-# danwp
 # Alpine-NGINX-PHPFPM-Wordpres (x86_64)
 [![](https://images.microbadger.com/badges/image/rjarow/alpine-nginx-phpfpm.svg)](https://microbadger.com/images/rjarow/alpine-nginx-phpfpm "Get your own image badge on microbadger.com")
 
-This is a Docker Container that uses alpine 3.6, adds s6 overlay(process manager), installs latest nginx, php-fpm. wp-cli is then installed, downloads to /usr/html. 
+This is a Docker Container that uses alpine 3.6, adds s6 overlay(process manager), installs latest nginx, php-fpm. wp-cli is then installed, downloads Wordpress to /usr/html. 
 
 If the environment variables for database info are passed, it waits for the db instance to become available and then writes the wp-config.php file with that info.
 
