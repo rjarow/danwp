@@ -1,5 +1,4 @@
-# Alpine-NGINX-PHPFPM-Wordpres (x86_64)
-[![](https://images.microbadger.com/badges/image/rjarow/alpine-nginx-phpfpm.svg)](https://microbadger.com/images/rjarow/alpine-nginx-phpfpm "Get your own image badge on microbadger.com")
+# Alpine-NGINX-PHPFPM-Wordpress (x86_64)
 
 This is a Docker Container that uses alpine 3.6, adds s6 overlay(process manager), installs latest nginx, php-fpm. wp-cli is then installed, downloads Wordpress to /usr/html. 
 
@@ -61,7 +60,7 @@ docker create --name danwptest -p 80:80 -v $(pwd):/usr/html \ -e PUID=$(id -u) \
 -e WORDPRESS_DB=db \
 -e WORDPRESS_DB_USER=wordpress \
 -e WORDPRESS_DB_PASSWORD=dbpassword \
-rjarow/alpine-nginx-phpfpm
+rjarow/danwp
 
 docker container start danwp
 ```
@@ -97,7 +96,7 @@ docker create --name yourdomain_wp \
 -e WORDPRESS_DB=wordpress \
 -e WORDPRESS_DB_USER=wordpress \
 -e WORDPRESS_DB_PASSWORD=password \
-rjarow/alpine-nginx-phpfpm
+rjarow/danwp
 
 docker start nginx-proxy
 docker start yourdomain_db
