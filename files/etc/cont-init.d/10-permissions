@@ -8,3 +8,6 @@ mkdir -p /usr/logs/nginx
 mkdir -p /tmp/nginx
 chown nginx /tmp/nginx
 chmod +x /usr/bin/wait-for-it.sh
+
+mkdir -p /usr/backup
+chown -R nginx:nginx /usr/backup
